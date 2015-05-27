@@ -31,3 +31,34 @@ text(fit, use.n=TRUE, all=TRUE, cex=.8)
  
 # tabulate some of the data
 table(subset(raw, Koc>=190.5)$Metal)
+
+###############
+# TREE package
+library(tree)
+ 
+tr = tree(frmla, data=raw)
+summary(tr)
+plot(tr); text(tr)
+
+###############
+# PARTY package
+library(party)
+ 
+(ct = ctree(frmla, data = raw))
+plot(ct, main="Conditional Inference Tree")
+ 
+#Table of prediction errors
+table(predict(ct), raw$Metal)
+ 
+# Estimated class probabilities
+tr.pred = predict(ct, newdata=raw, type="prob")
+
+###############
+## EVTREE (Evoluationary Learning)
+library(evtree)
+ 
+ev.raw = evtree(frmla, data=raw)
+plot(ev.raw)
+table(predict(ev.raw), raw$Metal)
+1-mean(predict(ev.raw) == raw$Metal)
+
