@@ -1,3 +1,5 @@
+#Tree methods such as CART (classification and regression trees) can be used as alternatives to logistic regression.
+
 library("party")
 #Call function ctree to build a decision tree. 
 #The first parameter is a formula, which defines a target variable and a list of independent variables.
