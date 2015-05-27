@@ -51,6 +51,6 @@ plot(density(iris$Sepal.Length))
 plot(iris$Sepal.Length, iris$Sepal.Width)
 
 #pair plot
-plot(iris) # or pairs(iris)
+plot(iris)                       # or pairs(iris)
 
 
