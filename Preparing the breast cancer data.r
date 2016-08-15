@@ -12,10 +12,10 @@ url <- paste(loc, ds, sep="")
 
 df  <- read.table(url, sep=",", header=FALSE, na.strings="?")[-1]
 df  <- df[, c(10, 1:9)]
-names(df) <- c("clumpThickness", "sizeUniformity",
+names(df) <- c("class", "clumpThickness", "sizeUniformity",
 					"shapeUniformity", "maginalAdhesion",
 					"singleEpithelialCellSize", "bareNuclei",
-					"blandChromatin", "normalNucleoli", "mitosis", "class")
+					"blandChromatin", "normalNucleoli", "mitosis")
 
 df$class <- factor(df$class, levels=c(2,4),labels=c("benign", "malignant"))
 
