@@ -11,6 +11,7 @@ ds  <- "breast-cancer-wisconsin/breast-cancer-wisconsin.data"
 url <- paste(loc, ds, sep="")
 
 df  <- read.table(url, sep=",", header=FALSE, na.strings="?")[-1]
+df  <- df[, c(10, 1:9)]
 names(df) <- c("clumpThickness", "sizeUniformity",
 					"shapeUniformity", "maginalAdhesion",
 					"singleEpithelialCellSize", "bareNuclei",
